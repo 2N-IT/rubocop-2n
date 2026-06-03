@@ -5,7 +5,7 @@ module RuboCop
     module N2
       # Flags `{ key: key }` hash pairs where symbol key matches local variable name.
       # Suggests Ruby 3.1 shorthand `{ key: }`.
-      class HashValueShorthand < Base
+      class HashValueShorthand < CopBase
         extend AutoCorrector
 
         MSG = "Use Ruby 3.1 hash value shorthand `{ %<key>s: }` instead of `{ %<key>s: %<key>s }`."

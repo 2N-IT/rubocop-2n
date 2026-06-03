@@ -13,7 +13,7 @@ module RuboCop
       #
       #   # good
       #   hash.values
-      class MapToValues < Base
+      class MapToValues < CopBase
         extend AutoCorrector
 
         MSG = "Use `%<suggestion>s` instead of `.map { |_, v| v }`."
@@ -34,8 +34,7 @@ module RuboCop
             receiver = node.send_node.receiver
             suggestion = "#{receiver.source}.values"
             add_offense(node, message: format(MSG, suggestion: suggestion)) do |corrector|
-              receiver = node.send_node.receiver
-              corrector.replace(node, "#{receiver.source}.values")
+              corrector.replace(node, suggestion)
             end
           end
         end

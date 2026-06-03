@@ -1,13 +1,6 @@
 # frozen_string_literal: true
 
-require 'rubocop'
-require 'rubocop/rspec/expect_offense'
-require 'rubocop/rspec/support'
-require_relative '../../../../lib/rubocop/cop/n2/map_to_values'
-
 RSpec.describe RuboCop::Cop::N2::MapToValues, :config do
-  include RuboCop::RSpec::ExpectOffense
-
   it 'flags .map { |_k, v| v } with underscore-prefixed ignored key' do
     expect_offense(<<~RUBY)
       hash.map { |_k, v| v }

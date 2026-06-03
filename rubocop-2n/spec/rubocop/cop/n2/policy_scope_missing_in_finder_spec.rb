@@ -1,13 +1,6 @@
 # frozen_string_literal: true
 
-require 'rubocop'
-require 'rubocop/rspec/expect_offense'
-require 'rubocop/rspec/support'
-require_relative '../../../../lib/rubocop/cop/n2/policy_scope_missing_in_finder'
-
 RSpec.describe RuboCop::Cop::N2::PolicyScopeMissingInFinder, :config do
-  include RuboCop::RSpec::ExpectOffense
-
   it 'flags @x ||= Model.find without policy_scope' do
     expect_offense(<<~RUBY)
       @order ||= Order.find(params[:order_id])

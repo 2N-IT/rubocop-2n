@@ -27,7 +27,7 @@ module RuboCop
       #
       #   # good (legacy keyword form)
       #   enum status: { active: "active", inactive: "inactive" }
-      class IntegerEnumInModel < Base
+      class IntegerEnumInModel < CopBase
         MSG = "Prefer string-backed enums `key: \"key\"` over integer-backed - " \
               "safer in raw DB queries and immune to insertion-order bugs."
 

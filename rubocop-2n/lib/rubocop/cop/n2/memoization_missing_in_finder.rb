@@ -23,7 +23,7 @@ module RuboCop
       #   def order
       #     @order ||= policy_scope(Order).find(params[:order_id])
       #   end
-      class MemoizationMissingInFinder < Base
+      class MemoizationMissingInFinder < CopBase
         extend AutoCorrector
 
         MSG = "Memoize the finder with `||=` instead of `=` — " \

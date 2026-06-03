@@ -23,7 +23,7 @@ module RuboCop
       #   def order
       #     @order ||= policy_scope(Order).find(params[:order_id])
       #   end
-      class PolicyScopeMissingInFinder < Base
+      class PolicyScopeMissingInFinder < CopBase
         extend AutoCorrector
 
         MSG = "Use `policy_scope` when memoizing a finder — " \

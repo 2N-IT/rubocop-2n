@@ -24,7 +24,7 @@ module RuboCop
       #   def user
       #     @user ||= policy_scope(User).find(params[:id])
       #   end
-      class BeforeActionSetX < Base
+      class BeforeActionSetX < CopBase
         MSG = "Avoid `before_action :%<callback>s` — prefer a memoized `def %<resource>s` called directly in each action."
 
         RESTRICT_ON_SEND = %i[before_action].freeze

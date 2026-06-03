@@ -1,13 +1,6 @@
 # frozen_string_literal: true
 
-require 'rubocop'
-require 'rubocop/rspec/expect_offense'
-require 'rubocop/rspec/support'
-require_relative '../../../../lib/rubocop/cop/n2/before_action_set_x'
-
 RSpec.describe RuboCop::Cop::N2::BeforeActionSetX, :config do
-  include RuboCop::RSpec::ExpectOffense
-
   it 'flags before_action :set_user' do
     expect_offense(<<~RUBY)
       before_action :set_user

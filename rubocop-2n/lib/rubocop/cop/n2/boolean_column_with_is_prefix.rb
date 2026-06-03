@@ -26,7 +26,7 @@ module RuboCop
       #   create_table :cats do |t|
       #     t.boolean :worm
       #   end
-      class BooleanColumnWithIsPrefix < Base
+      class BooleanColumnWithIsPrefix < CopBase
         MSG = "Avoid `is_` prefix on boolean columns — use `%<suggested>s` instead of `%<original>s`."
 
         RESTRICT_ON_SEND = %i[add_column boolean].freeze

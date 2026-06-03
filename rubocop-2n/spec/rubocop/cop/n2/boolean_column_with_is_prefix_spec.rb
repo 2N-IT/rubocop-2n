@@ -1,13 +1,6 @@
 # frozen_string_literal: true
 
-require 'rubocop'
-require 'rubocop/rspec/expect_offense'
-require 'rubocop/rspec/support'
-require_relative '../../../../lib/rubocop/cop/n2/boolean_column_with_is_prefix'
-
 RSpec.describe RuboCop::Cop::N2::BooleanColumnWithIsPrefix, :config do
-  include RuboCop::RSpec::ExpectOffense
-
   it 'flags add_column with is_ prefix on boolean column' do
     expect_offense(<<~RUBY)
       add_column :users, :is_active, :boolean

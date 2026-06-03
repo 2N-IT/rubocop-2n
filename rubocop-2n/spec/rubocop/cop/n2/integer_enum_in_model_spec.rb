@@ -1,13 +1,6 @@
 # frozen_string_literal: true
 
-require 'rubocop'
-require 'rubocop/rspec/expect_offense'
-require 'rubocop/rspec/support'
-require_relative '../../../../lib/rubocop/cop/n2/integer_enum_in_model'
-
 RSpec.describe RuboCop::Cop::N2::IntegerEnumInModel, :config do
-  include RuboCop::RSpec::ExpectOffense
-
   it 'flags modern form with integer values' do
     expect_offense(<<~RUBY)
       enum :status, { active: 0, inactive: 1 }

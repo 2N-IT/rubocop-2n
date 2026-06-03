@@ -1,13 +1,6 @@
 # frozen_string_literal: true
 
-require 'rubocop'
-require 'rubocop/rspec/expect_offense'
-require 'rubocop/rspec/support'
-require_relative '../../../../lib/rubocop/cop/n2/hash_value_shorthand'
-
 RSpec.describe RuboCop::Cop::N2::HashValueShorthand, :config do
-  include RuboCop::RSpec::ExpectOffense
-
   include_context 'ruby 3.1'
 
   it 'flags { name: name } where key matches local variable' do
