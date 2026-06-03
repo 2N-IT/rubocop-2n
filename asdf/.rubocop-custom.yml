@@ -1,0 +1,46 @@
+require:
+  # Models / ActiveRecord
+  - ./lib/rubocop/cop/n2/boolean_column_with_is_prefix
+  - ./lib/rubocop/cop/n2/integer_enum_in_model
+  # Controllers / Routing
+  - ./lib/rubocop/cop/n2/policy_scope_missing_in_finder
+  - ./lib/rubocop/cop/n2/memoization_missing_in_finder
+  - ./lib/rubocop/cop/n2/before_action_set_x
+  # Ruby / Code Style
+  - ./lib/rubocop/cop/n2/map_to_values
+  - ./lib/rubocop/cop/n2/hash_value_shorthand
+
+AllCops:
+  NewCops: enable
+  SuggestExtensions: false
+  DisabledByDefault: true
+
+N2/BooleanColumnWithIsPrefix:
+  Enabled: true
+  Include:
+    - 'db/migrate/**/*.rb'
+
+N2/IntegerEnumInModel:
+  Enabled: true
+  Include:
+    - 'app/models/**/*.rb'
+
+
+N2/PolicyScopeMissingInFinder:
+  Enabled: true
+  Include:
+    - 'app/controllers/**/*.rb'
+
+N2/MemoizationMissingInFinder:
+  Enabled: true
+  Include:
+    - 'app/controllers/**/*.rb'
+
+N2/BeforeActionSetX:
+  Enabled: true
+
+N2/MapToValues:
+  Enabled: true
+
+N2/HashValueShorthand:
+  Enabled: false
