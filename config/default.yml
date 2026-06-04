@@ -31,3 +31,17 @@ N2/MapToValues:
 
 N2/HashValueShorthand:
   Enabled: true
+
+N2/TimeNow:
+  Enabled: true
+
+N2/EnvFetchOverBracket:
+  Enabled: true
+
+N2/TimestampColumnType:
+  Enabled: true
+  Include:
+    - 'db/migrate/**/*.rb'
+
+N2/PluckOverMapAttribute:
+  Enabled: true

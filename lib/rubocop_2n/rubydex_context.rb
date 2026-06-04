@@ -6,7 +6,10 @@ module RuboCop
       def self.graph
         @graph ||= begin
           require 'rubydex'
-          Rubydex::Graph.build(Dir.pwd)
+          graph = Rubydex::Graph.new(workspace_path: Dir.pwd)
+          graph.index_workspace
+          graph.resolve
+          graph
         end
       end
     end
