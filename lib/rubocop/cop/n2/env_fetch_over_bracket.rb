@@ -30,6 +30,8 @@ module RuboCop
 
         def on_send(node)
           env_bracket?(node) do |key|
+            next if node.parent&.or_asgn_type?
+
             add_offense(node, message: format(MSG, key: key))
           end
         end

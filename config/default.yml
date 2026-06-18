@@ -34,6 +34,8 @@ N2/TimeNow:
 
 N2/EnvFetchOverBracket:
   Enabled: true
+  Exclude:
+    - 'config/puma.rb'
 
 N2/TimestampColumnType:
   Enabled: true
