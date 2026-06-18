@@ -44,6 +44,8 @@ module RuboCop
             return if policy_scoped?(finder_node.receiver)
 
             root = receiver_root(finder_node.receiver)
+            return unless root.const_type?
+
             suggestion = "#{ivar_name} ||= policy_scope(#{root.source}).#{finder_node.source.split('.', 2).last}"
             add_offense(node, message: format(MSG, suggestion: suggestion)) do |corrector|
               corrector.replace(root, "policy_scope(#{root.source})")

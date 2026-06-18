@@ -53,6 +53,12 @@ RSpec.describe RuboCop::Cop::N2::PolicyScopeMissingInFinder, :config do
     RUBY
   end
 
+  it 'does not flag when receiver root is an instance (not a class constant)' do
+    expect_no_offenses(<<~RUBY)
+      @developer ||= project.developers.find(params[:developer_id])
+    RUBY
+  end
+
   it 'does not flag plain = assignment on constant (different cop)' do
     expect_no_offenses(<<~RUBY)
       @order = Order.find(params[:order_id])
