@@ -7,7 +7,7 @@ Custom RuboCop cops for the 2N organisation.
 Add to your `Gemfile`:
 
 ```ruby
-gem 'rubocop-2n', github: '2N-IT/rubocop-2n', require: false
+gem "rubocop-2n", git: "git@github.com:2N-IT/rubocop-2n.git", require: false
 ```
 
 Then run:
@@ -18,10 +18,10 @@ bundle install
 
 ## Configuration
 
-Copy the default config into your project:
+Copy the default config into your project and prepend the `plugins:` declaration:
 
 ```bash
-curl -o .rubocop_2n.yml https://raw.githubusercontent.com/2N-IT/rubocop-2n/main/config/default.yml
+{ echo $'plugins:\n  - rubocop-2n\n'; cat $(bundle show rubocop-2n)/config/default.yml; } > .rubocop_2n.yml
 ```
 
 ## Running

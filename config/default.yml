@@ -29,9 +29,6 @@ N2/BeforeActionSetX:
 N2/MapToValues:
   Enabled: true
 
-N2/HashValueShorthand:
-  Enabled: true
-
 N2/TimeNow:
   Enabled: true
 
