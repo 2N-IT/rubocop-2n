@@ -28,12 +28,22 @@ module RuboCop
           (send (const {nil? cbase} :ENV) :[] (str $_))
         PATTERN
 
+        NIL_SAFE_PREDICATES = %i[present? blank? nil? empty?].freeze
+
         def on_send(node)
           env_bracket?(node) do |key|
             next if node.parent&.or_asgn_type?
+            next if nil_safe_predicate_receiver?(node)
 
             add_offense(node, message: format(MSG, key: key))
           end
+        end
+
+        private
+
+        def nil_safe_predicate_receiver?(node)
+          parent = node.parent
+          parent&.send_type? && NIL_SAFE_PREDICATES.include?(parent.method_name)
         end
       end
     end

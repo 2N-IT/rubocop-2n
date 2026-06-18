@@ -59,4 +59,28 @@ RSpec.describe RuboCop::Cop::N2::EnvFetchOverBracket, :config do
       ::ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../Gemfile', __dir__)
     RUBY
   end
+
+  it 'does not flag ENV[key].present?' do
+    expect_no_offenses(<<~RUBY)
+      ENV['CI'].present?
+    RUBY
+  end
+
+  it 'does not flag ENV[key].blank?' do
+    expect_no_offenses(<<~RUBY)
+      ENV['CI'].blank?
+    RUBY
+  end
+
+  it 'does not flag ENV[key].nil?' do
+    expect_no_offenses(<<~RUBY)
+      ENV['CI'].nil?
+    RUBY
+  end
+
+  it 'does not flag ENV[key].empty?' do
+    expect_no_offenses(<<~RUBY)
+      ENV['CI'].empty?
+    RUBY
+  end
 end
