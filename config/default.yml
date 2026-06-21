@@ -44,3 +44,6 @@ N2/TimestampColumnType:
 
 N2/PluckOverMapAttribute:
   Enabled: true
+
+N2/RedundantLocalFromMethod:
+  Enabled: true
